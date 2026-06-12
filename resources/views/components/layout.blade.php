@@ -16,6 +16,7 @@
                     <a href="{{ route('recus.index') }}" class="text-lg font-semibold">Assistant Dépenses</a>
                     @auth
                         <a href="{{ route('recus.index') }}" class="text-sm text-gray-600 hover:underline">Mes reçus</a>
+                        <a href="{{ route('depenses.index') }}" class="text-sm text-gray-600 hover:underline">Dépenses</a>
                     @endauth
                 </div>
                 <div class="flex items-center gap-4">
