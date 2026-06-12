@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DepenseController;
 use App\Http\Controllers\RecuController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('recus', RecuController::class)->only([
         'index', 'create', 'store', 'show', 'destroy'
     ]);
+    Route::get('depenses', [DepenseController::class, 'index'])->name('depenses.index');
 });
