@@ -246,13 +246,13 @@ For Si Brahim's current volume (tens of receipts per month), `->get()` is fine. 
 ## 3. Tasks
 
 | # | Task | Owner | Done? |
-|---|---|---|---|
-| T03-1 | Create `DepenseController` with `index()` method | OpenCode | ☐ |
-| T03-2 | Register `/depenses` route in `routes/web.php` | OpenCode | ☐ |
-| T03-3 | Build `depenses/index.blade.php` with filter bar + table + empty state | OpenCode | ☐ |
-| T03-4 | Add "Dépenses" link with active state to `layouts/app.blade.php` nav | OpenCode | ☐ |
+|---|---|---|---|---|
+| T03-1 | Create `DepenseController` with `index()` method | OpenCode | ✅ |
+| T03-2 | Register `/depenses` route in `routes/web.php` | OpenCode | ✅ |
+| T03-3 | Build `depenses/index.blade.php` with filter bar + table + empty state | OpenCode | ✅ |
+| T03-4 | Add "Dépenses" link with active state to `layouts/app.blade.php` nav | OpenCode | ✅ |
 | T03-5 | **Human verification:** Open Debugbar on `/depenses` — confirm ≤ 3 queries, zero N+1 | Human | ☐ |
 | T03-6 | **Human verification:** Apply `?categorie=alimentaire` filter — confirm only alimentaire rows show, total updates correctly | Human | ☐ |
 | T03-7 | **Human verification:** Apply `?categorie=invalid_value` to URL manually — confirm no 500, page loads unfiltered | Human | ☐ |
 | T03-8 | **Human verification:** Empty state shows when no depenses match filter — confirm call-to-action link works | Human | ☐ |
-| T03-9 | Commit: `[AI] feat(depenses): filterable dashboard with enum badges and N+1-safe eager loading` | Human | ☐ |
+| T03-9 | Commit: `[AI] feat(depenses): filterable dashboard with enum badges and N+1-safe eager loading` | Human | ✅ |

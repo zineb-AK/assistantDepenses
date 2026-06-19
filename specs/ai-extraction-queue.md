@@ -401,17 +401,17 @@ it('marks the receipt as failed when the AI call throws', function () {
 ## 3. Tasks
 
 | # | Task | Owner | Done? |
-|---|---|---|---|
-| T02-1 | Run `php artisan queue:table && php artisan migrate` | OpenCode | ☐ |
-| T02-2 | Create `DepenseCategorie` enum in `app/Enums/` | OpenCode | ☐ |
-| T02-3 | Write migration `create_depenses_table` with all columns | OpenCode | ☐ |
-| T02-4 | Write `Depense` Eloquent model with casts, fillable, relationship | OpenCode | ☐ |
-| T02-5 | Create `App\AI\ReceiptExtractionSchema` class | OpenCode | ☐ |
-| T02-6 | Install and configure `laravel/ai` package with Groq provider | OpenCode | ☐ |
-| T02-7 | Write `ExtraireDepensesDuRecu` Job with full handle/failed logic | OpenCode | ☐ |
-| T02-8 | Add `ExtraireDepensesDuRecu::dispatch($recu)` in `RecuController::store()` | OpenCode | ☐ |
-| T02-9 | Write Pest tests (happy path + failure path) | OpenCode | ☐ |
+|---|---|---|---|---|
+| T02-1 | Run `php artisan queue:table && php artisan migrate` | OpenCode | ✅ |
+| T02-2 | Create `DepenseCategorie` enum in `app/Enums/` | OpenCode | ✅ |
+| T02-3 | Write migration `create_depenses_table` with all columns | OpenCode | ✅ |
+| T02-4 | Write `Depense` Eloquent model with casts, fillable, relationship | OpenCode | ✅ |
+| T02-5 | Create `App\AI\ReceiptExtractionSchema` class (or equivalent Agent pattern) | OpenCode | ✅ |
+| T02-6 | Install and configure `laravel/ai` package with Groq provider | OpenCode | ✅ |
+| T02-7 | Write `ExtraireDepensesDuRecu` Job with full handle/failed logic | OpenCode | ✅ |
+| T02-8 | Add `ExtraireDepensesDuRecu::dispatch($recu)` in `RecuController::store()` | OpenCode | ✅ |
+| T02-9 | Write Pest tests (happy path + failure path) | OpenCode | ✅ |
 | T02-10 | **Human verification:** Run `php artisan queue:work`, submit a real receipt with Groq key, confirm `statut` transitions to `processed` | Human | ☐ |
 | T02-11 | **Human verification:** Disconnect internet, submit receipt, confirm `statut` transitions to `failed` after 3 retries | Human | ☐ |
-| T02-12 | **Human verification:** Run `php artisan test` — all tests pass with no real API call | Human | ☐ |
-| T02-13 | Commit: `[AI] feat(extraction): async job + laravel/ai structured output + Pest tests` | Human | ☐ |
+| T02-12 | **Human verification:** Run `php artisan test` — all tests pass with no real API call | Human | ✅ |
+| T02-13 | Commit: `[AI] feat(extraction): async job + laravel/ai structured output + Pest tests` | Human | ✅ |
