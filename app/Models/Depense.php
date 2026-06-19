@@ -14,7 +14,13 @@ class Depense extends Model
     {
         return [
             'categorie' => DepenseCategorie::class,
+            'prix_unitaire' => 'decimal:2',
         ];
+    }
+
+    public function totalLigne(): float
+    {
+        return $this->quantite * $this->prix_unitaire;
     }
 
     public function recu(): BelongsTo

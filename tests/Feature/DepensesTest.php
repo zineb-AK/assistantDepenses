@@ -25,7 +25,7 @@ class DepensesTest extends TestCase
         $recu->depenses()->create(['libelle' => 'Huile', 'quantite' => 5, 'prix_unitaire' => 12.00, 'categorie' => 'alimentaire']);
 
         $recu2 = $user->recus()->create(['texte_source' => 'Receipt 2', 'statut' => RecuStatus::Processed]);
-        $recu2->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiene']);
+        $recu2->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiène']);
 
         $response = $this->actingAs($user)->get(route('depenses.index'));
 
@@ -40,7 +40,7 @@ class DepensesTest extends TestCase
         $user = User::factory()->create();
         $recu = $user->recus()->create(['texte_source' => 'Receipt', 'statut' => RecuStatus::Processed]);
         $recu->depenses()->create(['libelle' => 'Farine', 'quantite' => 10, 'prix_unitaire' => 5.00, 'categorie' => 'alimentaire']);
-        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiene']);
+        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiène']);
 
         $response = $this->actingAs($user)->get(route('depenses.index', ['categorie' => 'alimentaire']));
 
@@ -53,7 +53,7 @@ class DepensesTest extends TestCase
         $user = User::factory()->create();
         $recu = $user->recus()->create(['texte_source' => 'Receipt', 'statut' => RecuStatus::Processed]);
         $recu->depenses()->create(['libelle' => 'Farine', 'quantite' => 10, 'prix_unitaire' => 5.00, 'categorie' => 'alimentaire']);
-        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiene']);
+        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiène']);
 
         $response = $this->actingAs($user)->get(route('depenses.index', ['categorie' => 'invalid']));
 
@@ -84,7 +84,7 @@ class DepensesTest extends TestCase
         $recu = $user->recus()->create(['texte_source' => 'Receipt', 'statut' => RecuStatus::Processed]);
         $recu->depenses()->create(['libelle' => 'Farine', 'quantite' => 10, 'prix_unitaire' => 5.00, 'categorie' => 'alimentaire']);
         $recu->depenses()->create(['libelle' => 'Riz', 'quantite' => 2, 'prix_unitaire' => 15.00, 'categorie' => 'alimentaire']);
-        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiene']);
+        $recu->depenses()->create(['libelle' => 'Savon', 'quantite' => 3, 'prix_unitaire' => 8.50, 'categorie' => 'hygiène']);
 
         $response = $this->actingAs($user)->get(route('depenses.index'));
 

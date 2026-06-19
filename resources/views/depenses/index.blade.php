@@ -65,12 +65,7 @@
                             <td class="p-4">{{ number_format($depense->prix_unitaire, 2, ',', ' ') }} MAD</td>
                             <td class="p-4 font-semibold">{{ number_format($depense->quantite * $depense->prix_unitaire, 2, ',', ' ') }} MAD</td>
                             <td class="p-4">
-                                <span class="inline-block px-3 py-1 text-xs font-medium rounded-full
-                                    {{ $depense->categorie->value === 'alimentaire' ? 'bg-green-100 text-green-700' : '' }}
-                                    {{ $depense->categorie->value === 'boissons' ? 'bg-blue-100 text-blue-700' : '' }}
-                                    {{ $depense->categorie->value === 'hygiene' ? 'bg-pink-100 text-pink-700' : '' }}
-                                    {{ $depense->categorie->value === 'entretien' ? 'bg-orange-100 text-orange-700' : '' }}
-                                    {{ $depense->categorie->value === 'autre' ? 'bg-gray-100 text-gray-700' : '' }}">
+                                <span class="inline-block px-3 py-1 text-xs font-medium rounded-full {{ $depense->categorie->badgeClass() }}">
                                     {{ $depense->categorie->label() }}
                                 </span>
                             </td>

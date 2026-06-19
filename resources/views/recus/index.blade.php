@@ -24,6 +24,7 @@
                 <thead>
                     <tr class="text-left text-sm font-semibold uppercase tracking-wider">
                         <th class="p-4">Statut</th>
+                        <th class="p-4">Aperçu</th>
                         <th class="p-4">Dépenses</th>
                         <th class="p-4">Date</th>
                         <th class="p-4 text-right">Actions</th>
@@ -31,16 +32,21 @@
                 </thead>
                 <tbody>
                     @foreach ($recus as $recu)
-                        <tr class="border-b border-gray-100 card-hover">
+                        <tr class="border-b border-gray-100 card-hover"
+                            data-recu-id="{{ $recu->id }}"
+                            data-status="{{ $recu->statut->value }}"
+                            data-poll-url="{{ route('recus.status', $recu) }}">
                             <td class="p-4">
-                                <span class="inline-block px-3 py-1.5 text-xs font-bold rounded-full text-white shadow-sm
-                                    {{ $recu->statut->value === 'pending' ? 'badge-pending' : ($recu->statut->value === 'processed' ? 'badge-processed' : 'badge-failed') }}">
+                                <span class="inline-block px-3 py-1.5 text-xs font-bold rounded-full text-white shadow-sm status-badge {{ $recu->statut->badgeClass() }}">
                                     {{ $recu->statut->label() }}
                                 </span>
                             </td>
+                            <td class="p-4 text-sm text-gray-600 max-w-xs truncate">
+                                {{ Str::limit($recu->texte_source, 60) }}
+                            </td>
                             <td class="p-4">
                                 <span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
-                                    🧾 {{ $recu->depenses->count() }}
+                                    🧾 <span class="depenses-count">{{ $recu->depenses->count() }}</span>
                                 </span>
                             </td>
                             <td class="p-4 text-sm text-gray-500">{{ $recu->created_at->format('d/m/Y H:i') }}</td>

@@ -28,5 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('recus', RecuController::class)->only([
         'index', 'create', 'store', 'show', 'destroy'
     ]);
+    Route::get('recus/{recu}/status', [RecuController::class, 'status'])->name('recus.status');
     Route::get('depenses', [DepenseController::class, 'index'])->name('depenses.index');
 });

@@ -16,4 +16,13 @@ enum RecuStatus: string
             self::Failed => 'Échoué',
         };
     }
+
+    public function badgeClass(): string
+    {
+        return match ($this) {
+            self::Pending => 'badge-pending',
+            self::Processed => 'badge-processed',
+            self::Failed => 'badge-failed',
+        };
+    }
 }

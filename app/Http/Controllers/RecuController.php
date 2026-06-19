@@ -55,4 +55,17 @@ class RecuController extends Controller
         return redirect()->route('recus.index')
             ->with('success', 'Reçu supprimé avec succès');
     }
+
+    public function status(Recu $recu)
+    {
+        if ($recu->user_id !== auth()->id()) {
+            abort(404);
+        }
+
+        return response()->json([
+            'statut'       => $recu->statut->value,
+            'statut_label' => $recu->statut->label(),
+            'nb_depenses'  => $recu->depenses()->count(),
+        ]);
+    }
 }
