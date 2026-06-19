@@ -1,40 +1,43 @@
 <x-layout>
-    <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold">Mes reçus</h1>
-        <a href="{{ route('recus.create') }}" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-            Nouveau reçu
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold text-accent-800 tracking-wider">Mes reçus</h1>
+        <a href="{{ route('recus.create') }}" class="px-4 py-2 bg-accent-500 text-white rounded-lg hover:bg-accent-600 font-medium tracking-wide shadow-sm transition">
+            + Nouveau reçu
         </a>
     </div>
 
     @if ($recus->isEmpty())
-        <p class="text-gray-500">Aucun reçu. <a href="{{ route('recus.create') }}" class="text-blue-600 hover:underline">Créer un reçu</a></p>
+        <div class="bg-white rounded-xl shadow-sm border border-accent-100 p-12 text-center">
+            <p class="text-muted text-lg">Aucun reçu pour le moment.</p>
+            <a href="{{ route('recus.create') }}" class="text-accent-500 hover:text-accent-600 font-medium underline mt-2 inline-block">Créer un reçu</a>
+        </div>
     @else
-        <div class="overflow-x-auto">
-            <table class="w-full bg-white shadow rounded">
+        <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-accent-100">
+            <table class="w-full">
                 <thead>
-                    <tr class="border-b bg-gray-50 text-left">
-                        <th class="p-3 font-semibold">Statut</th>
-                        <th class="p-3 font-semibold">Dépenses</th>
-                        <th class="p-3 font-semibold">Date</th>
-                        <th class="p-3 font-semibold">Actions</th>
+                    <tr class="border-b border-accent-100 text-left tracking-wider text-sm">
+                        <th class="p-3 font-semibold text-accent-600">Statut</th>
+                        <th class="p-3 font-semibold text-accent-600">Dépenses</th>
+                        <th class="p-3 font-semibold text-accent-600">Date</th>
+                        <th class="p-3 font-semibold text-accent-600">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($recus as $recu)
-                        <tr class="border-b hover:bg-gray-50">
+                        <tr class="border-b border-accent-50 hover:bg-accent-50/50 transition">
                             <td class="p-3">
-                                <span class="px-2 py-1 text-sm rounded {{ $recu->statut->label() === 'En attente' ? 'bg-yellow-100 text-yellow-800' : ($recu->statut->label() === 'Traité' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800') }}">
+                                <span class="px-3 py-1 text-sm font-medium rounded-full {{ $recu->statut->value === 'pending' ? 'bg-amber-50 text-amber-700' : ($recu->statut->value === 'processed' ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-700') }}">
                                     {{ $recu->statut->label() }}
                                 </span>
                             </td>
-                            <td class="p-3">{{ $recu->depenses->count() }}</td>
-                            <td class="p-3 text-sm text-gray-600">{{ $recu->created_at->format('d/m/Y H:i') }}</td>
-                            <td class="p-3 flex gap-2">
-                                <a href="{{ route('recus.show', $recu) }}" class="text-blue-600 hover:underline">Voir</a>
+                            <td class="p-3 text-muted">{{ $recu->depenses->count() }}</td>
+                            <td class="p-3 text-sm text-muted">{{ $recu->created_at->format('d/m/Y H:i') }}</td>
+                            <td class="p-3 flex gap-3">
+                                <a href="{{ route('recus.show', $recu) }}" class="text-accent-500 hover:text-accent-600 font-medium">Voir</a>
                                 <form method="POST" action="{{ route('recus.destroy', $recu) }}" onsubmit="return confirm('Supprimer ce reçu ?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="text-red-600 hover:underline">Supprimer</button>
+                                    <button class="text-muted hover:text-red-600 font-medium">Supprimer</button>
                                 </form>
                             </td>
                         </tr>

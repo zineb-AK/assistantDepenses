@@ -20,4 +20,20 @@ enum DepenseCategorie: string
             self::Autre => 'Autre',
         };
     }
+
+    public static function tryFromFlexible(string $value): ?self
+    {
+        $normalized = mb_strtolower(trim($value));
+
+        $map = [
+            'hygiène' => self::Hygiene,
+            'alimentaire' => self::Alimentaire,
+            'boissons' => self::Boissons,
+            'boisson' => self::Boissons,
+            'entretien' => self::Entretien,
+            'autre' => self::Autre,
+        ];
+
+        return $map[$normalized] ?? self::tryFrom($normalized);
+    }
 }
