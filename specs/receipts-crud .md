@@ -260,19 +260,19 @@ Breeze generates: login, register, logout, password reset — all in Blade. No c
 ## 3. Tasks
 
 | # | Task | Owner | Done? |
-|---|---|---|---|
-| T01-1 | Run `php artisan breeze:install blade` and verify auth routes | OpenCode | ☐ |
-| T01-2 | Create `RecuStatus` enum in `app/Enums/` | OpenCode | ☐ |
-| T01-3 | Write migration `create_recus_table` with all columns above | OpenCode | ☐ |
-| T01-4 | Write `Recu` Eloquent model with casts, fillable, relationships | OpenCode | ☐ |
-| T01-5 | Write `StoreRecuRequest` with rules and messages | OpenCode | ☐ |
-| T01-6 | Write `RecuController` with all 6 methods (index/create/store/show/destroy/status) | OpenCode | ☐ |
-| T01-7 | Register routes in `routes/web.php` | OpenCode | ☐ |
-| T01-8 | Build `recus/index.blade.php` with status badges table | OpenCode | ☐ |
-| T01-9 | Build `recus/create.blade.php` with form and error display | OpenCode | ☐ |
-| T01-10 | Build `recus/show.blade.php` with two-section layout | OpenCode | ☐ |
-| T01-11 | Add flash message partials to `layouts/app.blade.php` | OpenCode | ☐ |
-| T01-12 | Write `poll-status.js` and import in Vite (`app.js`) | OpenCode | ☐ |
+|---|---|---|---|---|
+| T01-1 | Run `php artisan breeze:install blade` and verify auth routes | OpenCode | ✅ |
+| T01-2 | Create `RecuStatus` enum in `app/Enums/` | OpenCode | ✅ |
+| T01-3 | Write migration `create_recus_table` with all columns above | OpenCode | ✅ |
+| T01-4 | Write `Recu` Eloquent model with casts, fillable, relationships | OpenCode | ✅ |
+| T01-5 | Write `StoreRecuRequest` with rules and messages | OpenCode | ✅ |
+| T01-6 | Write `RecuController` with all 6 methods (index/create/store/show/destroy/status) | OpenCode | ✅ |
+| T01-7 | Register routes in `routes/web.php` | OpenCode | ✅ |
+| T01-8 | Build `recus/index.blade.php` with status badges table | OpenCode | ✅ |
+| T01-9 | Build `recus/create.blade.php` with form and error display | OpenCode | ✅ |
+| T01-10 | Build `recus/show.blade.php` with two-section layout | OpenCode | ✅ |
+| T01-11 | Add flash message partials to `layouts/app.blade.php` | OpenCode | ✅ |
+| T01-12 | Write `poll-status.js` and import in Vite (`app.js`) | OpenCode | ✅ |
 | T01-13 | **Human verification:** Submit a receipt, confirm redirect is instant, confirm badge updates without page reload | Human | ☐ |
 | T01-14 | **Human verification:** Debugbar — index page shows exactly 2 queries (users + recus with depenses count) | Human | ☐ |
-| T01-15 | Commit: `[AI] feat(recus): CRUD scaffold with polling status update` | Human | ☐ |
+| T01-15 | Commit: `[AI] feat(recus): CRUD scaffold with polling status update` | Human | ✅ |

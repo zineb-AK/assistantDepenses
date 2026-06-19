@@ -29,7 +29,7 @@ class RecuController extends Controller
 
         ExtraireDepensesDuRecu::dispatch($recu);
 
-        return redirect()->route('recus.index')
+        return redirect()->route('recus.show', $recu)
             ->with('success', 'Reçu créé avec succès');
     }
 
